@@ -28,6 +28,8 @@ const musicBtn = document.getElementById("musicBtn");
 
 openInvitation.addEventListener("click", function () {
 
+    cover.classList.add("cover-opening");
+    
     cover.classList.add("hidden");
 
     invitation.classList.remove("hidden");
@@ -826,3 +828,116 @@ function updateStats(comments) {
     }
 
 }
+
+/* =========================================================
+   ANIMASI SAAT SCROLL
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const animatedElements =
+            document.querySelectorAll(
+                `
+                section,
+                .profile-card,
+                .child-card,
+                .event-card,
+                .gift-card,
+                .comment-item,
+                .section-title,
+                .closing-image,
+                .footer
+                `
+            );
+
+
+        /*
+         * Tandai elemen yang akan
+         * dianimasikan
+         */
+
+        animatedElements.forEach(
+            function (element) {
+
+                /*
+                 * Jangan membuat section
+                 * menjadi invisible.
+                 */
+
+                if (
+                    !element.classList.contains(
+                        "cover"
+                    )
+                ) {
+
+                    element.classList.add(
+                        "reveal"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /*
+         * Observer untuk mendeteksi
+         * ketika elemen masuk layar
+         */
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "active"
+                                );
+
+
+                                /*
+                                 * Setelah muncul,
+                                 * tidak perlu diamati
+                                 * lagi.
+                                 */
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        /*
+         * Mulai mengamati semua elemen
+         */
+
+        animatedElements.forEach(
+            function (element) {
+
+                observer.observe(
+                    element
+                );
+
+            }
+        );
+
+    }
+);
