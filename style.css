@@ -1402,3 +1402,592 @@ a {
     }
 
 }
+
+/* =========================================================
+   ANIMASI WEBSITE UNDANGAN
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. ANIMASI DASAR SAAT COVER DIBUKA
+--------------------------------------------------------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes zoomSoft {
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   2. COVER
+--------------------------------------------------------- */
+
+.cover-content .ornament {
+    animation:
+        fadeDown 1s ease .2s both;
+}
+
+
+.cover-content .eyebrow {
+    animation:
+        fadeUp 1s ease .4s both;
+}
+
+
+.cover-content h1 {
+    animation:
+        fadeUp 1.1s ease .55s both;
+}
+
+
+.cover-content .cover-names {
+    animation:
+        zoomIn 1.1s ease .75s both;
+}
+
+
+.cover-content .cover-description {
+    animation:
+        fadeUp 1s ease .9s both;
+}
+
+
+.cover-content .guest-name {
+    animation:
+        zoomIn 1s ease 1s both;
+}
+
+
+.cover-content .cover-photo {
+    animation:
+        zoomIn 1.2s ease .5s both;
+}
+
+
+.cover-content .btn {
+    animation:
+        fadeUp 1s ease 1.2s both;
+}
+
+
+/* ---------------------------------------------------------
+   3. FOTO COVER - GERAK HALUS
+--------------------------------------------------------- */
+
+.cover-photo img {
+    transition:
+        transform .8s ease,
+        box-shadow .8s ease;
+}
+
+
+.cover-photo:hover img {
+    transform: scale(1.03);
+}
+
+
+/* ---------------------------------------------------------
+   4. TOMBOL BUKA UNDANGAN
+--------------------------------------------------------- */
+
+.cover-content .btn {
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.cover-content .btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 12px 30px rgba(210,168,75,.25);
+}
+
+
+/* ---------------------------------------------------------
+   5. EFEK FLOATING TOMBOL
+--------------------------------------------------------- */
+
+@keyframes floatingButton {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+
+.cover-content .btn {
+    animation:
+        fadeUp 1s ease 1.2s both,
+        floatingButton 3s ease-in-out 2.5s infinite;
+}
+
+
+/* ---------------------------------------------------------
+   6. ORNAMEN BERGERAK
+--------------------------------------------------------- */
+
+@keyframes ornamentFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+
+}
+
+
+.ornament {
+    animation:
+        ornamentFloat 4s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   7. SECTION SAAT SCROLL
+--------------------------------------------------------- */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.2,.7,.2,1);
+}
+
+
+.reveal.active {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ---------------------------------------------------------
+   8. ANIMASI FOTO
+--------------------------------------------------------- */
+
+.reveal-image {
+    opacity: 0;
+
+    transform:
+        scale(.92);
+
+    transition:
+        opacity 1s ease,
+        transform 1.1s cubic-bezier(.2,.7,.2,1);
+}
+
+
+.reveal-image.active {
+    opacity: 1;
+
+    transform:
+        scale(1);
+}
+
+
+/* ---------------------------------------------------------
+   9. JUDUL SECTION
+--------------------------------------------------------- */
+
+.section-title {
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.section-title.active {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ---------------------------------------------------------
+   10. KARTU PROFIL
+--------------------------------------------------------- */
+
+.profile-card,
+.child-card,
+.event-card,
+.gift-card,
+.comment-item {
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        background .4s ease;
+}
+
+
+.profile-card:hover,
+.child-card:hover,
+.event-card:hover,
+.gift-card:hover,
+.comment-item:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.18);
+}
+
+
+/* ---------------------------------------------------------
+   11. FOTO PROFIL
+--------------------------------------------------------- */
+
+.profile-card img,
+.child-card img {
+
+    transition:
+        transform .7s ease;
+}
+
+
+.profile-card:hover img,
+.child-card:hover img {
+
+    transform:
+        scale(1.04);
+}
+
+
+/* ---------------------------------------------------------
+   12. FOTO PENUTUP
+--------------------------------------------------------- */
+
+.closing-image {
+
+    opacity: 0;
+
+    transform:
+        scale(.9);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.closing-image.active {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+}
+
+
+/* ---------------------------------------------------------
+   13. TEKS PENUTUP
+--------------------------------------------------------- */
+
+.closing-photo h2,
+.closing-photo p,
+.footer {
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+
+.closing-photo.active h2,
+.closing-photo.active p,
+.footer.active {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ---------------------------------------------------------
+   14. FOTO BERDUA - EFEK BERNAFAS
+--------------------------------------------------------- */
+
+@keyframes photoBreathing {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.015);
+    }
+
+}
+
+
+.closing-image img {
+
+    animation:
+        photoBreathing 5s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   15. GOLD SHIMMER
+--------------------------------------------------------- */
+
+@keyframes goldShimmer {
+
+    0% {
+        background-position:
+            -200% center;
+    }
+
+    100% {
+        background-position:
+            200% center;
+    }
+
+}
+
+
+.cover-names,
+.guest-name span {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            #fff1b0,
+            var(--gold),
+            #fff1b0,
+            var(--gold)
+        );
+
+    background-size:
+        250% auto;
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+
+    animation:
+        goldShimmer 6s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   16. KOMENTAR MUNCUL SATU PER SATU
+--------------------------------------------------------- */
+
+.comment-item {
+
+    animation:
+        fadeUp .7s ease both;
+}
+
+
+.comment-item:nth-child(1) {
+    animation-delay: .05s;
+}
+
+.comment-item:nth-child(2) {
+    animation-delay: .12s;
+}
+
+.comment-item:nth-child(3) {
+    animation-delay: .19s;
+}
+
+.comment-item:nth-child(4) {
+    animation-delay: .26s;
+}
+
+.comment-item:nth-child(5) {
+    animation-delay: .33s;
+}
+
+
+/* ---------------------------------------------------------
+   17. SCROLLBAR HALUS
+--------------------------------------------------------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ---------------------------------------------------------
+   18. REDUCED MOTION
+   Untuk pengguna yang mematikan animasi
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
+}
+
+/* =========================================================
+   TRANSISI SAAT BUKA UNDANGAN
+========================================================= */
+
+.cover {
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s ease;
+}
+
+
+.cover.cover-opening {
+
+    opacity: 0;
+
+    transform:
+        scale(1.08);
+
+    pointer-events: none;
+
+}
+
+
+/* Isi cover ikut menjauh */
+
+.cover.cover-opening .cover-content {
+
+    transform:
+        scale(.96);
+
+    opacity: 0;
+
+    transition:
+        opacity .7s ease,
+        transform .9s ease;
+
+}
